@@ -1,0 +1,17 @@
+1.1数据类型
+1.11基本数据类型：字符型char、布尔类型boolean以及数值类型byte、short、int、long、float、double;
+（数值类型分为整数类型byte、short、int、long和浮点数类型float、double；）
+（1）整型 int(基本型）、short（短整型）、long（长整型）、byte（字节型）
+（2）浮点型 float（单精度）、double（双精度）
+（3）字符型 char
+（4）布尔型 boolean
+1.12常量——在定义时被赋值，以后它的值再也不能被改变
+eg final int MALE=1; 习惯上符号常量名用大写，普通变量名用小写；
+1.13变量
+eg int student；
+变量使用匈牙利命名法——如果只有一个单词，整个单词小写；如果有两个以上的单词，则第一个单词小写，其余各单词的首字母大写；
+
+
+
+1.2运算符与表达式
+1.3流程控制语句
