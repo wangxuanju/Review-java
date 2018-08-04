@@ -43,6 +43,7 @@ int i;i=100;等价于int i=100;
 byte、short、int、long、float、double从左往右转换
 char 、int、long、float、double从左往右转换
 （2）缩减转换——会损失精度，必须使用强制类型转换（除非有十足的把握，不要进行缩减转换）
+char、byte、short、int、long、float、double
 
 1.2运算符与表达式
 1.3流程控制语句
