@@ -48,4 +48,22 @@ int a[][] = b;这种方法只是增加了b的一个引用；a和b指向了同一
 2.3 二维数组的使用
 数组名[行号][列号] eg k=a[3][4];
 
-2 字符串
+3 字符串——java专门为存储和处理字符串提供了两个类：String和StringBuff类
+3.1 String对象的声明
+String类有大量的方法用于处理字符串，对字符串数据的任何操作都必须通过这些方法来进行（需要特别注意：本类是最终类，不允许继承）
+声明一个String类型的变量和声明普通变量形同：
+String 变量名；
+3.2 String对象的创建
+3.2.1初始化
+通过初始化的方法来创建对象，同时为该对象赋值 eg String str = "hello";
+3.2.2 使用new关键字，创建String对象
+String str = new String{"hello"};
+3.2.3 通过任何可以返回字符串的方法
+java中提供了大量的可以返回一个字符串的方法，用一个String变量接收这些返回值的同时就创建了该对象。
+eg String strHex = Integer.toHexString(1235);
+Integer类中提供了一个静态方法toHexString(),可以将指定的整型数据转换为一个十六进制的字符串返回。
+
+
+
+
+
