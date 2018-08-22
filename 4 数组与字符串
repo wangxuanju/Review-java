@@ -62,7 +62,10 @@ String str = new String{"hello"};
 java中提供了大量的可以返回一个字符串的方法，用一个String变量接收这些返回值的同时就创建了该对象。
 eg String strHex = Integer.toHexString(1235);
 Integer类中提供了一个静态方法toHexString(),可以将指定的整型数据转换为一个十六进制的字符串返回。
-
+3.2.4 使用 字符串常量
+任意一个字符串常量，java会自动为其创建String对象；
+eg k="Hello".length();其中length()方法时String所具有的方法；由于Hello是一个对象，所以可以调用它；String的对象一旦创建，则字符串就存放在该对象的
+属性中。
 
 
 
