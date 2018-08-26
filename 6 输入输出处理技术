@@ -1,1 +1,95 @@
+1 数据与java I/O
+java I/O分类：
+基于字节操作的I/O接口：InputStream和OutputStream
+基于字符操作的I/O接口：Writer和Reader
+基于磁盘操作的I/O接口：File
+基于网络操作的I/O接口：Socket
+（前两组主要是根据传输数据的数据格式，后两组主要是根据传输数据的方式）
+2 基于字节的I/O操作接口
+InputerStream和OutputStream定义了最基本的输入和输出的功能，但它们都是抽象类，不能直接使用；
+InputerStream负责数据的输入，OutputStream负责数据的输出，它们都是字节流。
+2.1 InputerStream类的数据层次和方法
+InputerStream提供了一系列操作数据的方法，以完成输入的动作，这些方法大多数是公有方法；
+OutputStream与InputStream相反，是所有字节输出流的共同祖先；OutputStream提供了一系列操作数据的方法以完成输出的动作。
 
+2.2 文件输入流FileInputStream
+InputStream是抽象类，并不能直接使用，实际编程中需要使用它的子类来创建对象；
+如果需要处理的数据是文件，通常都会使用FileInputStream类，该类主要负责对本地磁盘文件的顺序的读入工作，该类继承了InputStream的所有方法，并实现了其中的
+read()方法，还提供了多个构造方法；（由于java将设备也作为文件处理，所有该类也可以用来实现标准的输入）
+2.3 文件输出流FileOutputStream
+FileOutputStream是OutputStream的直接子类，该类主要负责对本地磁盘文件的顺序输出工作，该类继承了OutputStream的所有方法，并实现了其中的write()方法，除
+此之外还提供了多个构造方法（由于java将设备也作为文件处理，所有该类也可以用来实现标准的输出）
+实现以下常用并且重要的功能（重点部分）：保存用户输入到文件、显示文件内容、文件的复制
+
+2.4 顺序输入流
+顺序输入流（SequenceInputStream）可以将多个输入流顺序连接在一起；在进行输入时，顺序输入流依次打开每个输入流并读取数据，在读取完毕后将该流关闭，然后
+自动切换到下一个输入流
+
+2.5 管道输入输出流
+管道输入输出流（PipeInputStream和PipedOutputStream）可以实现程序内部线程间的通信或不同程序间的通信。
+PiepedInputStream是一个通信管道的接收端，它必须与一个作为发射端的PipedOutputStream对象相连。
+管道输入输出流提供了两种连接方法：
+第一种方法是在构造方法中给出对应的管道流，在创建对象时进行链接
+构造方法如下：PipedInputStream（PipedOutputStream src）：创建一个管道输入流，并将其连接到src指定的管道输出流。
+PipedInputStream（PipedOutputStream src）：创建一个管道输出流，并将其连接到src指定的管道输入流。
+第二种方法是，利用管道输入输出流提供的connect()方法进行连接。
+
+2.6 过滤输入输出流
+过滤输入输出流（FilterInputStream和FileterOutputStream）是两个抽象类，它们分别派生出DataInputStream和DataOutputStream等子类；过滤输入输出流的主
+要特点是，建立在基本输入输出流之上，能够对基本的输入输出流所传输的数据进行指定类型或格式的转换，即可实现对二进制字节数据的理解的编码转换。
+常用的过滤流是数据输入输出流DataInputStream和DataOutputStream，它们可用于对不同类型数据的读写，其构造方法如下：
+DataInputStream（InputStream in）:建立一个新的数据输入流，从指定的输入流in中读数据；
+DataInputStream（OutputStream out）:建立一个新的数据输出流，向指定的输出流中写数据；
+DataInputStream中定义多个针对不同类型数据的读方法，如readByte()、readBoolean()、readChar()、readInt()、readFloat()、readDouble()等。
+DataOutputStream也定义了对应的针对不同类型数据的输出方法，如writeByte(()、WriteChar()、writerInt()、writerFloat()和writerDouble等。
+值得注意的是，这两个类的数据都是以二进制的形式处理，也就是说它不会自动将“123”这样的字符串转换为数值123.
+
+3 基于字符的I/O操作接口
+Reader和Writer以字符（16位）为单位对流数据进行处理，它们也是抽象类（Reader和Writer的子类要配套使用）。
+3.1 字符处理类Reader与Writer
+java.io.Reader、java.io.Writer与其子类等是处理字符流的相关类；
+InputStreamReader和OutputStreamWriter是从字节流到字符流转换的桥梁；前者从输入字节流中读入字节数据，按照指定或是默认的字符集将其转换为字符；后者则将
+字符数据转换为字节数据写出到输出流。
+3.2 文件复制
+
+4 控制台I/O处理
+4.1 控制台输入类Scanner
+要使用控制台输入类，首先要构造一个Scanner对象，并让它附属于标准输入流System.in，用法如下：
+Scanner in = new Scanner(System.in);
+
+4.2 格式化输出printf
+printf一般的输出格式如下：
+System.out.printf("<格式控制字符串>",<参数表>);
+“参数表”是需要输出的一系列参数，也就是要输出的数据项；输出项可以是常量、变量、表达式和函数返回值，它可以是0个、1个或多个；
+格式转换说明的一般形式为： %[格式修饰符]格式转换符
+
+
+5 java对文件的访问
+5.1 File类及其方法
+File类的对象表示是一个“抽象”的文件或目录；当程序创建一个File类的对象时，并没有真正创建或准备创建一个文件，也不会去打开相应的文件，只是获取一个
+File类的对象时，并没有真正创建或准备创建一个文件，也不会打开相应的文件，只是获取了文件的相关信息而已；它提供了两个方法：mkdir()和createNewFile()；
+mkdir用来创建目录，createNewFile可以创建一个空文件。
+5.2 File类读取文件列表
+5.3 文件的随机访问：RandomAccessFile
+java的RandomAccessFile提供对文件的读写功能，与普通的输入输出功能不一样的是，RandomAccessFile可以任意的访问文件的任何地方；此类的对象包括一个
+记录指针，用于标识当前流的读写位置；这个位置可以向前移动，也可以向后移动，通过指针移动的方式实现对文件的随机访问。
+RandomAccesssFile类是Object类的直接子类，它提供了大量的方法用于对文件进行随机的读写；
+5.4 RandomAccessFile类进行文件加密
+思路是：将文件中的内容读入到一片缓冲区，将每个字符都按位取反，然后将内容写回源文件。
+
+6 java序列化技术
+要让一个类类能够序列化，首先这个类要实现Serializable接口：
+class Student implements Serializable(....)
+由于Serializable接口中没有任何方法，所以不需要对自己的类进行任何修改
+然后，需要打开一个ObjectOutputStream对象：
+ObjectOutputStream out = new ObjectOutputStream（new FileOutputStream("save.dat")）;
+表示要将对象存储在sava.dat中；随后只需要使用ObjectOutputStream类中的writeObject方法，
+Student st = new Student("周勇","20070101",18,"计算机");
+out.writeObject(st);
+要读取对象，首先要取得一个ObjectInputStream对象：
+ObjectInputStream in = new ObjectInputStream(new FileInputStream("save.dat"));
+然后按照当初写入对象的顺序，用readObject方法读取对象：
+Student pupil = (Student) in.readObject();
+readObject每次调用都会读取类型为Object的一个对象，因此需要将它转化为正确的类型；如果不记得或是不需要确切的类型，可以将它转换为超类的类型，甚至让它的
+类型仍为Object;
+实际上，对象序列化是使用了一种特殊的文件格式来存储对象，这是一种二进制格式的文件。
