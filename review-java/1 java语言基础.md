@@ -161,26 +161,36 @@ x=y+10;
 （8）表达式的求值顺序
 
 ...java
+
 x+=6.0;等效于x=x+6.0;
+
 z*=x+y;等效于z=z*(x+y);
+
 a+=a-=b+5;等效于a=a+(a=a-(b+5));
+
 ...
+
 # 三、流程控制语句
 
 三种基本控制结构：顺序结构、选择结构、循环结构；
 （1）if~else分支语句
+
 ...java
-if(exp)   #exp可以是任意合法的关系表达式、逻辑表达式或者boolean值
+if(exp)  //exp可以是任意合法的关系表达式、逻辑表达式或者boolean值
     statement;
 ...
+
 （2）if~else
+
 ...java
 if(exp)
     stat1;
 else
     stat2;
 ...
+
 (3)if~else if~else语句
+
 ...java
 if（exp）
     stat1;
@@ -192,7 +202,9 @@ else if
 else
     stat n;
 ...
+
 (4)if语句的嵌套
+
 ...java
 if(exp1)
     if(exp2)
@@ -200,7 +212,7 @@ if(exp1)
 else
     if(exp3)
     else
-这种形式加花括号更安全
+//这种形式加花括号更安全
 if(exp1)
 {
     if(exp2)
@@ -208,7 +220,9 @@ if(exp1)
     if(exp3)
     else
 ...
+
 (5)多路分支switch~case语句
+
 ...java
 switch(exp){
     case exp1:
@@ -225,12 +239,16 @@ switch(exp){
            语句n+1;
            break;
    ...
+   
 (6)当型循环while语句
+
 ...java
 while(exp)
     stat;
 ...
+
 (7)直到型循环do~while语句
+
 ...java
 do
    stat
@@ -240,7 +258,9 @@ do{
     stat
 }while(exp);
 ...
+
 (8)当型循环for语句
+
 ...java
 for(exp1;exp2;exp3)
     stat
@@ -250,7 +270,9 @@ while(exp2){
     exp3;
 }
 ...
+
 (9)for的各种形式
+
 ...java
 for(;cnt<=100;cnt++) sum+=cnt;
 for(cnt=1;;cnt++) sum+=cnt;
@@ -262,12 +284,18 @@ for(;cnt<=100;){
     sum+=cnt;
     cnt++;
 }
+
 for(;;)语句（三个表达式都省略，无终止的执行循环体）
+
 for(sum=0;cnt<=100;cnt++) sum+=cnt;
+
 for(sum=0,cnt=1;cnt<=100;cnt++) sum+sum+cnt;
+
 for(i=0,j=100;i<=j;i++,j--) k=i+j;
 ...
+
 （10）增强的for循环
+
 ...java
 eg  Random rand = new Random(15);//定义一个产生随机数的Random对象
 float f[] = new float[10]; //定义一个大小为10的float数组空间
@@ -282,7 +310,9 @@ for(ElementType element:arrayName){
     stat;
 };//注意此处加了;号；
 ...
+
 （11）循环的嵌套
+
 ...java
 while(exp1){
     ....
@@ -302,10 +332,13 @@ for(exp1;exp2;exp3){
     }
 }
 ...
+
 (12)跳转语句break
+
 break;
 在switch结构中，break语句使控制跳转到该switch结构之后；在循环结构中，break语句使控制跳出包含它当前的循环层，并从循环之后的第一条语句继续执行；
 break语句不能用于循环体和switch语句之外的任何地方；
+
 ...java
 eg outer:  //加上标记outer
         while(true)
@@ -316,6 +349,7 @@ eg outer:  //加上标记outer
              }
   ...
  外层的while是一个无限的循环。由于被outer所标记，所以当执行到内层循环的break outer时，仍然可以跳出该循环；
+ 
 （13）跳转语句continue
 
 continue语句的功能是使当前执行的循环体中止，即跳过continue语句后面尚未执行的该循环中的所有语句，但不结束整个循环，而是继续下一轮循环；
