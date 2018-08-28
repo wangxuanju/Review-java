@@ -355,8 +355,12 @@ eg outer:  //加上标记outer
 continue语句的功能是使当前执行的循环体中止，即跳过continue语句后面尚未执行的该循环中的所有语句，但不结束整个循环，而是继续下一轮循环；
 ...java
 eg for(int num=100;num<=200;num++){
+
        if(num%3==0)
+       
            continue;
+           
        System.out.println(num+"");
+       
     }
 ...
