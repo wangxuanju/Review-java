@@ -173,6 +173,7 @@ a+=a-=b+5;等效于a=a+(a=a-(b+5));
 # 三、流程控制语句
 
 三种基本控制结构：顺序结构、选择结构、循环结构；
+
 （1）if~else分支语句
 
 ...java
@@ -185,6 +186,7 @@ if(exp)  //exp可以是任意合法的关系表达式、逻辑表达式或者boo
 ...java
 if(exp)
     stat1;
+    
 else
     stat2;
 ...
@@ -194,10 +196,13 @@ else
 ...java
 if（exp）
     stat1;
+    
 else if
     stat2;
+    
 else if
     stat3;
+    
 .....
 else
     stat n;
@@ -212,7 +217,9 @@ if(exp1)
 else
     if(exp3)
     else
+    
 //这种形式加花括号更安全
+
 if(exp1)
 {
     if(exp2)
@@ -226,17 +233,17 @@ if(exp1)
 ...java
 switch(exp){
     case exp1:
-             语句1；
+           //  语句1；
              break;
     case exp2:
-             语句2；
+             //语句2；
              break;
     .......
     case expn:
-             语句n；
+            // 语句n；
              break；
    default:
-           语句n+1;
+           //语句n+1;
            break;
    ...
    
@@ -253,7 +260,9 @@ while(exp)
 do
    stat
 while(exp);
+
 或者
+
 do{
     stat
 }while(exp);
@@ -264,7 +273,9 @@ do{
 ...java
 for(exp1;exp2;exp3)
     stat
-或者
+    
+//或者
+
 while(exp2){
     stat
     exp3;
@@ -275,17 +286,20 @@ while(exp2){
 
 ...java
 for(;cnt<=100;cnt++) sum+=cnt;
+
 for(cnt=1;;cnt++) sum+=cnt;
+
 for(cnt=1;cnt<=100;){
     sum+=cnt;
     cnt++；
 }
+
 for(;cnt<=100;){
     sum+=cnt;
     cnt++;
 }
 
-for(;;)语句（三个表达式都省略，无终止的执行循环体）
+for(;;)//语句（三个表达式都省略，无终止的执行循环体）
 
 for(sum=0;cnt<=100;cnt++) sum+=cnt;
 
@@ -297,14 +311,19 @@ for(i=0,j=100;i<=j;i++,j--) k=i+j;
 （10）增强的for循环
 
 ...java
-eg  Random rand = new Random(15);//定义一个产生随机数的Random对象
+Random rand = new Random(15);//定义一个产生随机数的Random对象
+
 float f[] = new float[10]; //定义一个大小为10的float数组空间
+
 for(int i=0;i<10;i++)
     f[i] = rand.nextFloat();//使用普通的for循环，为数组赋随机值；
+    
 for(float x:f)
     System.out.println(x);//使用增强的for循环实现数组遍历；
 ...
+
 标准语法格式
+
 ...java
 for(ElementType element:arrayName){
     stat;
@@ -320,11 +339,13 @@ while(exp1){
         ....
     }
 }
+
 do{
     for(exp1;exp2;exp3){
          ....
     }
 }while(exp);
+
 for(exp1;exp2;exp3){
     ....
     for(exp4;exp5;exp6){
@@ -341,7 +362,7 @@ break;
 break语句不能用于循环体和switch语句之外的任何地方；
 
 ...java
-eg outer:  //加上标记outer
+outer:  //加上标记outer
         while(true)
             for(int i=0;i<=10;i++){
                 System.out.println(i+"");
@@ -357,7 +378,7 @@ eg outer:  //加上标记outer
 continue语句的功能是使当前执行的循环体中止，即跳过continue语句后面尚未执行的该循环中的所有语句，但不结束整个循环，而是继续下一轮循环；
 
 ...java
-eg for(int num=100;num<=200;num++){
+for(int num=100;num<=200;num++){
        if(num%3==0)     
            continue;         
        System.out.println(num+"");     
