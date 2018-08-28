@@ -176,24 +176,24 @@ a+=a-=b+5;等效于a=a+(a=a-(b+5));
 
 （1）if~else分支语句
 
-...java
+```java
 if(exp)  //exp可以是任意合法的关系表达式、逻辑表达式或者boolean值
     statement;
-...
+```
 
 （2）if~else
 
-...java
+```java
 if(exp)
     stat1;
     
 else
     stat2;
-...
+```
 
 (3)if~else if~else语句
 
-...java
+```java
 if（exp）
     stat1;
     
@@ -206,11 +206,11 @@ else if
 .....
 else
     stat n;
-...
+```
 
 (4)if语句的嵌套
 
-...java
+```java
 if(exp1)
     if(exp2)
     else
@@ -226,11 +226,11 @@ if(exp1)
 }else
     if(exp3)
     else
-...
+```
 
 (5)多路分支switch~case语句
 
-...java
+```java
 switch(exp){
     case exp1:
            //  语句1；
@@ -245,18 +245,18 @@ switch(exp){
    default:
            //语句n+1;
            break;
-   ...
+   ```
    
 (6)当型循环while语句
 
-...java
+```java
 while(exp)
     stat;
-...
+```
 
 (7)直到型循环do~while语句
 
-...java
+```java
 do
    stat
 while(exp);
@@ -266,11 +266,11 @@ while(exp);
 do{
     stat
 }while(exp);
-...
+```
 
 (8)当型循环for语句
 
-...java
+```java
 for(exp1;exp2;exp3)
     stat
     
@@ -280,11 +280,11 @@ while(exp2){
     stat
     exp3;
 }
-...
+```
 
 (9)for的各种形式
 
-...java
+```java
 for(;cnt<=100;cnt++) sum+=cnt;
 
 for(cnt=1;;cnt++) sum+=cnt;
@@ -306,11 +306,11 @@ for(sum=0;cnt<=100;cnt++) sum+=cnt;
 for(sum=0,cnt=1;cnt<=100;cnt++) sum+sum+cnt;
 
 for(i=0,j=100;i<=j;i++,j--) k=i+j;
-...
+```
 
 （10）增强的for循环
 
-...java
+```java
 Random rand = new Random(15);//定义一个产生随机数的Random对象
 
 float f[] = new float[10]; //定义一个大小为10的float数组空间
@@ -320,19 +320,19 @@ for(int i=0;i<10;i++)
     
 for(float x:f)
     System.out.println(x);//使用增强的for循环实现数组遍历；
-...
+```
 
 标准语法格式
 
-...java
+```java
 for(ElementType element:arrayName){
     stat;
 };//注意此处加了;号；
-...
+```
 
 （11）循环的嵌套
 
-...java
+```java
 while(exp1){
     ....
     while(exp2){
@@ -352,7 +352,7 @@ for(exp1;exp2;exp3){
         ....
     }
 }
-...
+```
 
 (12)跳转语句break
 
@@ -361,7 +361,7 @@ break;
 在switch结构中，break语句使控制跳转到该switch结构之后；在循环结构中，break语句使控制跳出包含它当前的循环层，并从循环之后的第一条语句继续执行；
 break语句不能用于循环体和switch语句之外的任何地方；
 
-...java
+```java
 outer:  //加上标记outer
         while(true)
             for(int i=0;i<=10;i++){
@@ -369,7 +369,7 @@ outer:  //加上标记outer
                 if(i>4)
                     break outer;
              }
-  ...
+  ```
   
  外层的while是一个无限的循环。由于被outer所标记，所以当执行到内层循环的break outer时，仍然可以跳出该循环；
  
@@ -377,10 +377,10 @@ outer:  //加上标记outer
 
 continue语句的功能是使当前执行的循环体中止，即跳过continue语句后面尚未执行的该循环中的所有语句，但不结束整个循环，而是继续下一轮循环；
 
-...java
+```java
 for(int num=100;num<=200;num++){
        if(num%3==0)     
            continue;         
        System.out.println(num+"");     
     }
-...
+```
