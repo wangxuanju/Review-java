@@ -336,6 +336,7 @@ for(exp1;exp2;exp3){
 (12)跳转语句break
 
 break;
+
 在switch结构中，break语句使控制跳转到该switch结构之后；在循环结构中，break语句使控制跳出包含它当前的循环层，并从循环之后的第一条语句继续执行；
 break语句不能用于循环体和switch语句之外的任何地方；
 
@@ -348,19 +349,17 @@ eg outer:  //加上标记outer
                     break outer;
              }
   ...
+  
  外层的while是一个无限的循环。由于被outer所标记，所以当执行到内层循环的break outer时，仍然可以跳出该循环；
  
 （13）跳转语句continue
 
 continue语句的功能是使当前执行的循环体中止，即跳过continue语句后面尚未执行的该循环中的所有语句，但不结束整个循环，而是继续下一轮循环；
+
 ...java
 eg for(int num=100;num<=200;num++){
-
-       if(num%3==0)
-       
-           continue;
-           
-       System.out.println(num+"");
-       
+       if(num%3==0)     
+           continue;         
+       System.out.println(num+"");     
     }
 ...
