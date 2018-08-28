@@ -5,7 +5,37 @@ java集合框架
 实现：也就是集合框架中接口的具体实现
 算法：在一个实现了某个集合框架中的接口的对象身上完成某种有用的计算的方法。
 2 集合接口与类
+2.1 java集合接口层次
+java集合框架接口层次中，顶层的接口时Collection，它是一组允许重复的对象结构，Set接口继承Collection，但不允许重复；
+List接口继承Collection，允许重复，并引入位置下标；
+Queue接口继承Collection，表示队列及先后关系；
+Map接口即不继承Set也不继承Collection，它用来操作成对的对象元素。
+2.2 Collection接口
+java库中用于集合类的基本接口是Collection，该接口用于表示任何对象或元素组；想要尽可能以常规的方式处理一组元素时，就使用这一接口。
+Collection支持如添加和移除等基本操作。
+两个基本的操作方法：
+boolean add(Object element)    add()方法用于将对象添加给集合；如果添加集合之后，集合确实发生了变化，那么返回true,否则返回false.
+boolean remove(Object element)  remove()方法执行的是与之相反的操作。
 
+系统用了一个AbstractCollection类来实现Collection接口，程序员可以直接继承这个类；
+Collection中有一个特别的方法：Iterator iterator()
+方法返回一个能够实现Iterator接口的对象，此对象也称迭代器。程序员可以使用这个迭代对象，逐个访问集合中的各个元素，它有三个基本方法：
+Object next();
+boolean hasNext();
+void remove();
+通过反复调用next()方法，可以逐个访问集合中的各个元素；但是如果到了集合末尾，那么next()方法将抛出一个NoSuchElementException异常；因此，
+在调用next()方法之前，必须先调用hasNext()方法进行测试，如果测试的对象仍然拥有可供访问的元素，那么hasNext()将返回true.
+最后一个方法是remove()，它用于删除上次调用next()方法时返回的元素。
+使用remove()方法必须要小心，在调用remove()方法时，删除的是上次调用next()返回的元素；如果你要删除某个位置上的元素，首先要跳过这个元素。
+由于remove()和next()方法时互相关联的，在调用remove()方法之前，至少要保证调用一次next()方法，否则将会抛出一个IllegalStateException异常。
+2.3 Set接口
+Set接口继承Collection接口，它不允许集合中存在重复项；具体的Set实现类依赖添加的对象的equal()方法来检查同等性。
+Set接口具有两个具体的实现类，分别是HashSet和TreeSet.
+（1）HashSet是为优化查询速度而设计的Set，添加到HashSet的对象需要采用恰当的分配散列码的方式来实现hashCode()方法，当编程中需要自己创建自己的要添加到
+HashSet的类时，需要覆盖hashCode();
+（2）TreeSet是一个有序的Set，添加到TreeSet的元素也必须是可排序的。一般来说，先把元素添加到HashSet，再把集合转换为TreeSet来进行有序遍历会更快。
+HashSet和TreeSet都实现了Cloneable接口。
+（3）AbstractSet类覆盖了equals()和hashCode()方法，以确保两个相等的集返回相同的散列码；若两个集大小相等且包含相同的元素，则这两个集相等。
 3 集合类的使用
 
 
