@@ -3,9 +3,13 @@
 ## 基本数据类型：
 
 字符型char、布尔类型boolean以及数值类型byte、short、int、long、float、double;
+
 （数值类型分为整数类型byte、short、int、long和浮点数类型float、double；）
+
 （1）整型 int(基本型）、short（短整型）、long（长整型）、byte（字节型）
+
 （2）浮点型 float（单精度）、double（双精度）
+
 （3）字符型 char
 （4）布尔型 boolean
 
