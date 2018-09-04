@@ -207,7 +207,7 @@ else
     stat2;
 ```
 
-(3)if~else  if~else语句
+(3)if~else     if~else语句
 
 ```java
 if（exp）
