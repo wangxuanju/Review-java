@@ -70,7 +70,9 @@ java规定浮点型常量默认为双精度，如果需要指定单精度数，�
 ### 字符型数据
 
 （1）字符常量 用单引号括起来的一个字符，如‘a’、‘D’、‘$’
+
 （2）字符变量 
+
 short shTemp;shTemp=0x41;定义一个short型变量，将short型变量赋一个整型的数值；
 
 char ch;ch=(char)shTemp;定义一个char型变量，将short型变量转换为char型；
