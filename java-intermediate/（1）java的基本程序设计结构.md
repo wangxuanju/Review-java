@@ -93,6 +93,54 @@ JDK5.0中引入StringBuilder类，这个类的前身是StringBuffer（效率较�
 
 
 三、数组
+创建一个数字数组时，所有元素都初始化为0；Boolean数组的元素会初始化为false;对象数组的元素则初始化为一个特殊值null，表示这些元素还未存放任何对象。
+一旦创建了数组，就不能改变它的大小（尽管可以改变每一个数组元素）；
+如果经常需要运行过程扩展数组的大小，就应该使用另一种数据结构——数组列表（array list）;
+## for each循环
+这种增强的for循环的语句格式：
+```java
+for(variable:collection) 
+    statement
+```
+定义一个变量用于暂存集合中的每一个元素，并执行相应的语句；collection这一集合表达式必须是一个数组或者是一个实现了Iterable接口的类对象。
+```java
+for(init element:a)
+    System.out.println(element);//打印数组a的每一个元素，一个元素占一行。
+```
+这个循环应该读作“循环a中的每一个元素”；
+注意：for each循环语句的循环变量将会遍历数组中的每个元素，而不需要使用下标值。
+有个更简单的方式打印数组中的所有值，即利用Arrays类的toString方法；调用Arrays.toString(a),返回一个包含数组元素的字符串，这些元素被放置在括号内，并逗号分隔，例如“[2,3,,5,7,11,13]”。要想打印数组，可以调用System.out.println(Arrays.toString(a));
 
 
+## 数组拷贝
+在java中允许将一个数组变量拷贝给另一个数组变量；这时，两个变量将引用同一个数组：
+```java
+int[] luckyNumbers = smallPrimes;
+lunckNumbers[5] = 12;
+```
+如果希望将一个数组的所有值拷贝到一个新的数组中去，就要使用Arrays类的copyOf方法：
+```java
+int[] copiedLuckyNumbers = Arrays.copyOf(luckyNumbers,luckyNumbers.length);//第二个参数是新数组的长度，这个方法常用来增加数组的大小。
+luckyNumbers = Arrays.copyOf(lunckyNumbers,2*luckyNumbers.length);         
+```
+## 数组排序
+对数值型数组进行排序，可以使用Arrays类的sort方法：
+```java
+int[] a = new int[10000];
+....
+Arrays.sort(a)       //这个方法使用了优化的快速排序算法
+```
 
+## 多维数组
+如果想要访问二维数组a的所有元素，需要使用两个嵌套的循环：
+```java
+for(double[] row:a)
+    for(doubel value:row)
+        do something with value
+```
+要想快速的打印一个二维数组的数据元素列表，可以调用：
+```java
+System.out.println(Arrays.deepToString(a));//输出格式[[1,3,3],[1,3,5],[1,3,7]]
+```
+## 不规则数组
+java实际上没有多维数组，只有一维数组；多维数组被解释为“数组的数组”。
