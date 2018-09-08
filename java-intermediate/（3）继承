@@ -1,5 +1,26 @@
 
 二、Object：所有类的超类
+可以使用Object类型的变量引用任何类型的对象：
+```java
+Object obj = new Employee("Harry Hacker",35000);
+```
+Object类型的变量只能用于作为各种值的通用持有者；要想对内容进行具体的操作，还需要清楚对象的原始类型，并进行相应的类型转换：
+```java
+Employee e = (Employee) obj;
+```
+
+在java中只有基本类型不是对象；所有的数组类型，不管是数组还是基本类型的数组都扩展了Object类。
+
+
+
+
+
+
+
+
+
+
+
 
 
 三、泛型数组列表
