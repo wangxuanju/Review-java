@@ -1,5 +1,6 @@
 
-二、Object：所有类的超类
+# 二、Object：所有类的超类
+
 可以使用Object类型的变量引用任何类型的对象：
 ```java
 Object obj = new Employee("Harry Hacker",35000);
@@ -10,10 +11,35 @@ Employee e = (Employee) obj;
 ```
 
 在java中只有基本类型不是对象；所有的数组类型，不管是数组还是基本类型的数组都扩展了Object类。
+```java
+Employee[] staff = new Employee[10];
+obj = staff;
+obj = new int[10];
+```
 
+## equals方法
+Object类的equals方法用于检测一个对象是否等于另外一个对象。在Object类中这个方法将判断两个对象是否具有相同的引用。
+如果两个对象的状态相等，就认为这两个对象时相等的。
+（getClass方法将返回一个对象所属的类，在检测中只有在两个对象属于同一类时，才可能相等）；
+在子类中定义equals方法时，首先调用超类的equals；如果检测失败，对象不可能相等；如果超类中的域都相等，就需要比较子类中的实例域。
 
+注意：对应数组类型的域，使用静态的Arrays.equals方法检测相等的数组元素是否相等。
 
+## hashCode方法
 
+散列码是由对象导出的一个整型值。由于hashCode方法定义在Object类中，因此每个对象都有一个默认的散列码，其值为对象的存储地址。
+```java
+String s = "OK";
+StringBuilder sb = new StringBuilder(s);
+System.out.println(s.hashCode()+""+sb.hashCode());
+String t = new Stirng("OK");
+StringBuilder tb = new StringBuilder(t);
+System.out.println(t.hashCode()+""+tb.hashCode());
+```
+字符串缓存sb与tb有着不同的散列码，因为在StringBuffer类中没有定义hashCode方法，它的散列码是由Object类的默认hashCode方法导出的对象存储地址。
+
+hashCode方法应该返回一个整型数值，并合理的组合实例域的散列码，以便能够让各个不同的对象产生的散列码更加均匀。
+当需要组合多个散列值时，可以调用Objects.hash并提供多个参数，这个方法会对各个参数调用Object.hashCode，并组合这些散列值。这样Employee.hashCode方法可以简单
 
 
 
