@@ -1,3 +1,4 @@
+~~~java
 public class Array<E> {
 
     private E[] data;
@@ -145,3 +146,4 @@ public class Array<E> {
         data = newData;
     }
 }
+~~~
