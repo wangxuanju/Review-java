@@ -480,7 +480,7 @@ public static void getElement(Collection<?> coll){}
 //？代表可以接收任意类型
 ~~~
 
-> tips:泛型不存在继承关系 Collection<Object> list = new ArrayList<String>();这种是错误的。
+tips:泛型不存在继承关系 Collection<Object> list = new ArrayList<String>();这种是错误的。
 
 #### 通配符高级使用----受限泛型
 
