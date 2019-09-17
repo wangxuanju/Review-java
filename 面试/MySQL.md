@@ -125,4 +125,42 @@ update customers set cust_name='The Fudds',cust_emain='elemer@fudd.com' where cu
 update customers set cust_email=NULL where cust_id=10005;用Null来去除cust_email列中的值
 delete from customers where cust_id = 10006;delete from 要求指定从中删除数据的表名，where子句过滤要删除的行
 （delete删除整行而不是整列；为了删除指定的列，请使用update语句）
+
+
+视图
+create view productcustomers as select cust_name,cust_contact,prod_id from customers,orders,orderitems 
+                                                                  where customers.cust_id=orders.cust_id
+                                                                  and orderitems.order_num=orders.order_num;
+select cust_name,cust_contact from productcustomers where prod_id='TNT2';
+
+存储过程
+create procedure productpricing()
+begin
+   select Avg(prod_price) as priceaverage from products； 
+end;
+存储过程命名为productpricing，用create procedure productpricing()语句定义。如果存储过程接受参数，它们将在（）中列举出来； 没有参数，后跟的()仍然需要。begin和end语句用来限定存储过程体，过程体本来仅是一个简单的select语句；
+
+call productpricing();执行刚创建的存储过程并显示返回的结果；因为存储过程实际上是一种函数，所以存储过程名后面要有（）符号
+drop procedure productpricing;删除刚创建的存储过程，注意没有使用后面的（）；
+
+游标
+create procedure processorders()
+begin
+declare ordernumbers cursor
+for select order_num from  orders;
+end;
+declare命名游标，并定于相应的select语句，根据需要带where和其它的子句；本例命名的游标为ordernumbers(存储过程处理完成后，游标就消失；它仅局限于存储过程）
+open ordernumbers;处理open语句时执行查询，存储检索出的数据以供浏览和滚动；
+close ordernumbers;close释放游标使用的所有内存和内部资源，因此在每个游标不再需要时都应该关闭；
+
+
+create procedure processorders()
+begin 
+    declare o TNT;
+    declare ordernumbers cursor for select order_num from orders;
+    open ordernumbers;
+    fetch ordernumbers into o;
+    close ordernumbers;
+end;
+fetch用来检索当前行的order_num列（将自动从第一行开始）到第一个名为o的局部变量中；
 ```
