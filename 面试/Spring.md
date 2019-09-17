@@ -68,6 +68,37 @@ ApplicationContext是在BeanFactory的基础上构建，除了支持BeanFactory�
 #### ApplicationContext的实现类：
 FileSystemXmlApplicationContext文件路径获取/ClassPathXmlApplicationContext类路径获取/webXmlApplicationContext
 
+## Spring中xml配置和注解配置比较？
+xml（繁琐、代码独立），注解（简洁，代码耦合），一般二者配合使用
+
+## Spring事务及其传播属性？
+事务是一系列的动作，这些动作必须全部完成；如果一个动作失败，就回滚到开始状态。
+
+事务的四大特性：
+
+原子性：要么全部完成，要么全部失败（完全不起作用）
+
+一致性：一旦事务完成，必须确保它所建模的业务处于一致的状态
+
+隔离性：许多事务会同时处理相同的数据，每个事务都应该与其它事务隔离开来
+
+持久性：一旦事务完成，无论发生什么系统错误，结果都不应该受到影响（通常事务被写入持久化存储器中）
+### 传播行为
+当事务方法被另一个事务方法调用时，必须指定事务该如何传播
+
+### Spring中事务是如何实现的，有哪些事务处理机制？
+Spirng提供了多种事务管理器，将事务管理的职责委托给相关的平台框架的事务来实现
+Spring事务管理器的接口是org.springframework.transaction.PlatformTransactionManager,通过这个接口，Spring为各个平台如JDBC/Hiberante等提供了对应的事务管理器。
+
+## Spring中的设计模式？
+单例模式：配置文件中设置bean默认为单例模式
+
+依赖注入：贯穿于BeanFactory/ApplicationContext接口的核心理念
+
+前端控制器模式：Spring提供了前端控制器DispatchServlet来对请求进行分发
+
+工厂模式：Spring中使用beanFactory来创建对象的实现
+
 # SpringMVC
 
 # MyBatis
