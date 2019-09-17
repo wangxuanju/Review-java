@@ -1,10 +1,13 @@
+
+# 选择数据库
 ```java
-选择数据库
 show databases;显示数据库列表
 use t1;使用t1数据库
 show tables;显示ti数据库中有哪些表
 show columns from customers;显示customers表的内容；
-建表
+```
+# 建表
+```java
 CREATE TABLE customers
 (
   cust_id      int       NOT NULL AUTO_INCREMENT,每当增加一行时自动增量
@@ -29,8 +32,9 @@ drop talbe customers;
 重命名表
 rename table customers to customers1;
 rename table customers to customers1,customers2 to customers3,customers4 to customers5;对多个表重命名
-
-检索列
+```
+# 检索列
+```java
 select prod_name form products;从表中检索一个名为prod_name的列
 select prod_id,prod_name,prod_price from products;检索多个列 
 select * from products;检索所有的列
@@ -38,8 +42,9 @@ select * from products;检索所有的列
 限制结果
 select prod_name from products limit 5;mysql返回不多于5行
 select prod_name from products limit 5,5;mysql返回的值从第五行开始，检索接下来的五行
-
-排序
+```
+# 排序
+```java
 select prod_id,prod_price,prod_name from products order by prod_price DESC;默认排序是升序（A-Z），进行降序用DESC关键字
 select prod_id,prod_price,prod_name from products order by prod_price DESC,prod_name;排序时对prod_price按降序，prod_name按升序 
 
@@ -99,7 +104,9 @@ UNION ALL
 select vend_id,prod_id,prod_price from products where prod_price<=5 union all
                                       select vend_id,prod_id,prod_price from products where vend_id in(1001,1002);
 使用union all，mysql不取消重复的行（如果需要每个条件的匹配行全部出现（包括重复行），必须使用union all而不是where）
-
+```
+# 连接
+```java
 内部连接
 select vend_name,prod_name,prod_price from vendors INNER JOIN products ON vendors.vend_id=products.vend_id;
 两个表之间的关系是from子句的组成部分，这里以INNER JOIN指定；联结条件用特定的ON子句而不是where子句给出，传递给ON的实际条件与传递给where的相同
@@ -125,15 +132,17 @@ update customers set cust_name='The Fudds',cust_emain='elemer@fudd.com' where cu
 update customers set cust_email=NULL where cust_id=10005;用Null来去除cust_email列中的值
 delete from customers where cust_id = 10006;delete from 要求指定从中删除数据的表名，where子句过滤要删除的行
 （delete删除整行而不是整列；为了删除指定的列，请使用update语句）
+```
 
-
-视图
+# 视图
+```java
 create view productcustomers as select cust_name,cust_contact,prod_id from customers,orders,orderitems 
                                                                   where customers.cust_id=orders.cust_id
                                                                   and orderitems.order_num=orders.order_num;
 select cust_name,cust_contact from productcustomers where prod_id='TNT2';
-
-存储过程
+```
+# 存储过程
+```java
 create procedure productpricing()
 begin
    select Avg(prod_price) as priceaverage from products； 
@@ -142,8 +151,9 @@ end;
 
 call productpricing();执行刚创建的存储过程并显示返回的结果；因为存储过程实际上是一种函数，所以存储过程名后面要有（）符号
 drop procedure productpricing;删除刚创建的存储过程，注意没有使用后面的（）；
-
-游标
+```
+# 游标
+```java
 create procedure processorders()
 begin
 declare ordernumbers cursor
