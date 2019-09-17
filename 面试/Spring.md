@@ -41,6 +41,33 @@ private IuserDao userDao;二者配合使用可根据名称进行注入
 
 ## 什么是Spring beans?
 #### Spring beans是那些形成Spring应用的主干Java程序，被Spring IOC容器初始化、装配和管理，通过容器配置的元数据创建
+（三种方法给Spring容器配置元数据：xml配置文件、基于Java的注解和基于Java的配置）
+### Spring beans的生命周期
+#### bean定义：配置文件中用<bean></bean>标签来定义
+#### bean初始化：
+配置文件中指定init-method属性来完成
+实现org.springframwork.beans.factory.InitalizingBean接口
+#### Bean调用 三种方式可以得到bean实例进行调用（BeanWrapper/BeanFactory/ApplicationContext）
+#### Bean销毁
+配置文件指定destroy-method属性
+实现org.springframwork.beans.factory.DisposeableBean接口
+
+
+### Bean的自动装配
+IOC容器会自动简历JavaBean之间的关联关系，无须在配置文件中描述JavaBean之间的依赖关系
+### Spring中Bean的作用域？
+所创建的bean实例如果可以共享，就是Singleton（默认的作用域），如果每次从Spring容器请求bean时都创建一个新的bean实例就是protype
+（web应用场景中，request/session/application/global Session等）
+### Spring的内部bean
+当一个bean仅被用作另一个bean的属性时，能被声明为一个内部bean（Spring基于xml的配置元数据中，在<property/>或<constructor-org/>元素内使用<bean/>元素）
+
+## BeanFactory与Application与ApplicationContext的区别？
+BeanFactory是基础类型的IOC容器，提供完整的IOC服务支持；
+
+ApplicationContext是在BeanFactory的基础上构建，除了支持BeanFactory的所有功能外，还支持事件发布、国际化支持等。ApplicationContext管理的对象，在容器启动后默认全部初始化并绑定完成。
+#### ApplicationContext的实现类：
+FileSystemXmlApplicationContext文件路径获取/ClassPathXmlApplicationContext类路径获取/webXmlApplicationContext
+
 # SpringMVC
 
 # MyBatis
