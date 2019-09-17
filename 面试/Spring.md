@@ -139,19 +139,20 @@ SpringBoot解决了Spring配置繁琐复杂的缺点，基于约定优先于配�
 ## SpringBoot的优点
 SpringBoot提供了一种快速使用Spring的方式，提供更快的入门体验，开箱即用，没有代码生成也无须xml配置。
 ## SpringBoot的核心功能
-起步依赖：本质上是Maven项目对象模型（pom.xml）,定义了对其它库的传递依赖
+起步依赖：本质上是Maven项目对象模型（pom.xml）,定义了对其它库的传递依赖（起步依赖的作用就是进行依赖的传递）
+
 自动配置：是Spring自动完成的
-（）
 
+（SpringBoot项目要配置起步依赖spring-boot-starter-parent；如果集成SpringMVC进行Controller开发，要导入spring-boot-starter-web）
 
+```java
+@SpringBootApplication #标注SpringBoot启动类
+public class MySpringBootApplication{
+    public static void main(String[] args){
+        SpringApplication.run(MySpringBootApplication.class);#参数为启动类的字节码对象
+        # 代表运行SpringBoot的启动类
+    
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
+```
