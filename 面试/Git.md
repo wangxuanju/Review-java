@@ -44,13 +44,27 @@ git diff <branch1 >..<branch2>两个分支之间的比较
 git checkout v1.0切换到某版本
 git checkout ff..ff切换到某次commit
 
+# 放心手中的代码处理另一问题，处理完回来
+git stach 当前分支没有commit的代码先暂存
+git stach apply之前代码代码又从新回来了
+git stach drop 把这次的stach记录删除
+git stach pop （pop与apply的区别，pop不但会把代码还原而且还把stach记录删除）
+git stach clear 清除所有暂存区记录
 
 
+# 分支管理
+git branch develop 新建develop分支
+git checkout develop 切换到develop分支
+
+git push orign develop 把develop分支推送到远程仓库
+git push orign develop：develop2 远程仓库取名develop2（一般本地与远程仓库命名一致）
 
 
+分支管理工具Git Flow
+master即将发布--hotfix修复master上的问题---release准备发布版本的分支--develop最新发布状态--feature开发新功能分支
 
-
-
-
+git branch feature/A 做一个新功能A
+git branch hofix/B 线上bug修复
+git branch release/1.0感觉可发布到正式环境了
 
 
