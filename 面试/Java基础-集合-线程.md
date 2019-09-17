@@ -52,17 +52,26 @@ HashMap是Map的一个子接口，线程不安全，不允许键值重复（允�
 
 二者实现上类似，但ConcurrentHashMap采用了分段锁（Segment）的机制，多个线程可以同时访问不同分段锁上的桶，使其并发度更高；（Segment通过继承ReentrantLock来进行加锁，每次需要加锁都锁住一个Segment，只要保证每个Segment是线程安全的，也就实现了全局的线程安全）
 
+## HashTable和ConcurrentHashMap的区别?
+二者都是线程安全的，但HashTable是遗留类，建议使用ConcurrentHashMap,与之相比效率更高，因为引入了分段锁。
+## HashMap和LinkedHashMap？
+LinkedHashMap继承HashMap，具有和它一样的快速查找特性，内部维护了一个双向链表，用来维护插入顺序或LRU顺序。
 
+## 集合的安全性问题
+ArrayList/HashMap/HashSet都不是线程安全的，Vector和HashTable是线程安全的
 
+Collections工具类提供了相关API，可以让三个不安全的集合变成安全的
 
+Collections.synchronizedCollection(c)
 
+Collections.synchronizedList(list)
 
+Collections.synchronizedMap(m)
 
+Collections.synchronizedSet(s)
 
+实现原理将核心方法添加上了synchronized关键字（这几个函数传入什么类型返回什么类型）
+## Collection和Collectons的区别？
+Collection是集合框架的父接口，对集合对象进行基本操作的通用接口方法
 
-
-
-
-
-
-
+Collectons是一个包装类，就像一个工具类提供一系列有关集合操作的静态多态方法，服务于Collection框架。
