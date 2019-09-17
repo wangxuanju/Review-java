@@ -43,6 +43,26 @@ ArrayList添加元素时使用ensureCapactityInternal()方法来保证容量足�
 Queue：
 LinkedList（双向链表）/priorityQueue（堆）
 
+Map：
+HashTable（哈希表）/HashMap（哈希表）/LinkedHashMap(双向链表）
+## HashTable和HashMap的区别
+HashTable是线程安全的一个集合，不允许空值，多个线程访问时不需要为它的方法实现同步（使用synchronized来进行同步）
+HashMap是Map的一个子接口，线程不安全，不允许键值重复（允许值重复），允许空键和空值，效率较HashTable高（不能保证随着时间的推移Map中的元素次序是不变的）。
+## HashMap与ConcurrentHashMap的区别？（深究）
+
+二者实现上类似，但ConcurrentHashMap采用了分段锁（Segment）的机制，多个线程可以同时访问不同分段锁上的桶，使其并发度更高；（Segment通过继承ReentrantLock来进行加锁，每次需要加锁都锁住一个Segment，只要保证每个Segment是线程安全的，也就实现了全局的线程安全）
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
