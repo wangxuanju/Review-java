@@ -1,5 +1,5 @@
 # 线程
-## 创建多线程的两种方式
+## 创建多线程的三种方式
 ### 第一种方式：
 定义一个类继承Thread；
 
@@ -22,6 +22,26 @@ Thread t = new Thread(tt);
 t.setName("wang");
 t.start();
 ```
+### 第三种方式*
+实现Callable接口：Callable可以有返回值，返回值通过FutureTask进行封装。
+```java
+public class MyCallable implements Callable<Integer> {
+    public Integer call() {
+        return 123;
+    }
+}
+
+
+
+public static void main(String[] args) throws ExecutionException, InterruptedException {
+    MyCallable mc = new MyCallable();
+    FutureTask<Integer> ft = new FutureTask<>(mc);
+    Thread thread = new Thread(ft);
+    thread.start();
+    System.out.println(ft.get());
+}
+```
+实现Callable接口要实现call方法，并且线程执行完毕后有返回值；其它两种方式都是重写run方法，没有返回值。
 ## 进程与线程
 进程：一次程序的执行，是操作系统管理的基本的运行单元。
 线程：在进程中独立运行的子任务。
