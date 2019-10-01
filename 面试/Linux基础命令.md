@@ -136,3 +136,4 @@ find –name 1.txt找出当前目录下所有1.txt文件
 
 find –name ‘*.txt’找出当前目录下所有带.txt后缀的文件
 
+# 以上命令均在git bash环境下验证
