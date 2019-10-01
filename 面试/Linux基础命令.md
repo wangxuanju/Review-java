@@ -41,6 +41,7 @@ rm –f 1.txt
 mkdir wodewenjian 创建文件夹
 
 mkdir wodewenjian/a在wodewenjian下建a文件夹（只能建一层，即在文件里面建一个文件夹）
+mkdir -p a/b/c/d/e/f/g 在文件夹下建立多层文件
 
 # 删除文件夹
 rmdir wodewenjian 删除文件夹
