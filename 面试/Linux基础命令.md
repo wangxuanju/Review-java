@@ -23,13 +23,15 @@ touch创建文件
 
 rm删除文件
 
-rm –r 1.txt强制删除
-
 rm wenjian/2.txt 删除文件wenjian下的2.txt
 
 rm –i 1.txt
 
 -i 以进行交互式方式执行
+
+rm –r 1.txt强制删除
+
+rm -r wodewenjian(强制删除wodewenjian中的东西，无论什么类型多少个文件)
 
 rm –f 1.txt
 
@@ -41,6 +43,7 @@ rm –f 1.txt
 mkdir wodewenjian 创建文件夹
 
 mkdir wodewenjian/a在wodewenjian下建a文件夹（只能建一层，即在文件里面建一个文件夹）
+
 mkdir -p a/b/c/d/e/f/g 在文件夹下建立多层文件
 
 # 删除文件夹
