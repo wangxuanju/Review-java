@@ -1,5 +1,6 @@
 # pwd当前所在文件夹
 # clear清屏
+# exit从(git bash)退出
 # 查看命令位置：which
 # ls 显示当前目录
 ls -a 显示目录下所有子目录与文件，包括隐藏文件
