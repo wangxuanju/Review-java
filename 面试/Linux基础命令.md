@@ -1,8 +1,10 @@
-# pwd当前所在文件夹
-# clear清屏
-# exit从(git bash)退出
-# date显示当前时间
-# 查看命令位置：which
+# 一、常用的命令
+### pwd当前所在文件夹
+### clear清屏
+### exit从(git bash)退出
+### date显示当前时间
+### 查看命令位置：which
+# 二、查看（信息）的命令：ls
 # ls --help获取命令选项的帮助
 # ls 显示当前目录(ll查看当前详细目录)
 ls -a 显示目录下所有子目录与文件，包括隐藏文件
@@ -12,16 +14,28 @@ ls -l 以列表方式显示文件的详细信息
 ls –lah 
 
 （ls -h 配合 -l 以人性化的方式显示文件大小）
+# 三、切换目录
+
+cd wodewenjian 切换目录到wodewenjian
+
+cd 切换到当前用户主目录
+
+cd ~ 切换到当前用户的主目录(/home/用户目录)（和上一个命令作用一样）
+
+cd .当前目录
+
+cd .. 切换到上级目录
+
+cd –进入上次所在目录
 
 
-
-
-# 创建文件
+# 四、创建和删除文件
+## 创建文件
 touch创建文件
 
 例如touch 1.txt
 
-# 删除文件
+## 删除文件
 
 rm删除文件
 
@@ -41,33 +55,22 @@ rm –f 1.txt
 
 
 
-# 创建文件夹
+# 五、创建和删除文件夹
+## 创建文件夹
 mkdir wodewenjian 创建文件夹
 
 mkdir wodewenjian/a在wodewenjian下建a文件夹（只能建一层，即在文件里面建一个文件夹）
 
 mkdir -p a/b/c/d/e/f/g 在文件夹下建立多层文件
 
-# 删除文件夹
+## 删除文件夹
 rmdir wodewenjian 删除文件夹
 
 rmdir wode/wode2删除wode下的wode2文件夹
-# 切换目录
 
-cd wodewenjian 切换目录到wodewenjian
 
-cd 切换到当前用户主目录
-
-cd ~ 切换到当前用户的主目录(/home/用户目录)（和上一个命令作用一样）
-
-cd .当前目录
-
-cd .. 切换到上级目录
-
-cd –进入上次所在目录
-
-# 复制
-cp
+# 六、复制
+## cp常用命令
 
 cp 1.txt 2.txt复制1.txt生成2.txt
 
@@ -94,25 +97,25 @@ cp 1.txt 2.txt
 -v 显示拷贝进度
 
 
-# 移动重命名
+## 移动重命名
 mv 1.txt 3.txt重命名1.txt为3.txt
 
 mv 1.txt wodewenjian2将1.txt移动到wodewenjian2中
 
-# 压缩解压
+## 压缩解压
 gzip 2.txt 压缩2.txt文件
 
 gzip –d 2.txt解压缩刚才生成的压缩文件
 
 
 
-# cat 查看或者合并文件内容
+# 七、cat 查看或者合并文件内容
 cat 1.txt显示内容
 
 cat 1.txt 2.txt则1.txt和2.txt的内容均显示到面板
 
 
-# grep文本搜索
+# 八、grep文本搜索
 选项 含义
 
 grep –v a 1.txt将1.txt中不是a的字符全部返回
@@ -139,12 +142,12 @@ grep -n 'ke$' 1.txt
 
  ke$ 行尾,搜寻以 ke 结束的行；
 
-# 查找文件 find
+# 九、查找文件 find
 find –name 1.txt找出当前目录下所有1.txt文件
 
 find –name ‘*.txt’找出当前目录下所有带.txt后缀的文件
 
-# vim编辑器
+# 十、vim编辑器
 ## 进入编辑和退出
 vim abc (当前目录没有abc文件，则创建abc文件)
  i 进入编辑模式
@@ -182,12 +185,12 @@ dd删除光标所在的行
 o在光标所在行的下方插入一行并切换到输入模式
 
 
-# 权限管理chmod（*）
+# 十一、权限管理chmod（*）
 chmod u=rwx m.txt具有。。。权限
 
 chmod u+x m.txt加。。。权限
 
 chmod u-x m.txt 建。。。权限
-# 用户管理（*）
+# 十二、用户管理（*）
 
 # 以上命令均在git bash环境下验证，用户管理和权限管理非常重要以后再补充！
