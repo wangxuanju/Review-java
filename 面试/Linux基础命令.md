@@ -45,6 +45,7 @@ mkdir wodewenjian/a在wodewenjian下建a文件夹（只能建一层，即在文�
 rmdir wodewenjian 删除文件夹
 
 rmdir wode/wode2删除wode下的wode2文件夹
+# 切换目录
 
 cd wodewenjian 切换目录到wodewenjian
 
