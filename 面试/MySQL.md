@@ -140,6 +140,7 @@ create view productcustomers as select cust_name,cust_contact,prod_id from custo
                                                                   where customers.cust_id=orders.cust_id
                                                                   and orderitems.order_num=orders.order_num;
 select cust_name,cust_contact from productcustomers where prod_id='TNT2';
+drop view productcustomers;删除视图
 ```
 # 存储过程
 ```java
