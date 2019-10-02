@@ -146,7 +146,7 @@ drop view productcustomers;删除视图
 ```java
 create procedure productpricing()
 begin
-   select Avg(prod_price) as priceaverage from products； 
+   select Avg(prod_price) as priceaverage from products 
 end;
 存储过程命名为productpricing，用create procedure productpricing()语句定义。如果存储过程接受参数，它们将在（）中列举出来； 没有参数，后跟的()仍然需要。begin和end语句用来限定存储过程体，过程体本来仅是一个简单的select语句；
 
