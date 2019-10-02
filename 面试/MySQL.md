@@ -153,10 +153,22 @@ end;
 call productpricing();执行刚创建的存储过程并显示返回的结果；因为存储过程实际上是一种函数，所以存储过程名后面要有（）符号
 drop procedure productpricing;删除刚创建的存储过程，注意没有使用后面的（）；
 ```
+```
+delimiter //此步骤改变为//表示结束
+create procedure cuncucustome(in id int unsigned)
+begin
+delete from customer where cust_id = id;
+end
+//
+
+
+call cuncucustomer(3)；从customer表中删除cust_id=3的数据
+drop procedure cuncucustomer();
+```
 # 游标
 ```java
 create procedure processorders()
-begin
+beginc
 declare ordernumbers cursor
 for select order_num from  orders;
 end;
