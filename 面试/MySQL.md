@@ -168,11 +168,12 @@ drop procedure cuncucustomer;删除存储过程
 ```
 # 游标
 ```java
+delimiter //
 create procedure processorders()
-beginc
+begin
 declare ordernumbers cursor
 for select order_num from  orders;
-end;
+end //
 declare命名游标，并定于相应的select语句，根据需要带where和其它的子句；本例命名的游标为ordernumbers(存储过程处理完成后，游标就消失；它仅局限于存储过程）
 open ordernumbers;处理open语句时执行查询，存储检索出的数据以供浏览和滚动；
 close ordernumbers;close释放游标使用的所有内存和内部资源，因此在每个游标不再需要时都应该关闭；
