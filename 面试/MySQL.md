@@ -163,7 +163,7 @@ end
 
 
 call cuncucustomer(3)；从customer表中删除cust_id=3的数据
-drop procedure cuncucustomer();
+drop procedure cuncucustomer;删除存储过程
 ```
 # 游标
 ```java
