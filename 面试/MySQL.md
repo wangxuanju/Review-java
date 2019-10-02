@@ -144,10 +144,11 @@ drop view productcustomers;删除视图
 ```
 # 存储过程
 ```java
+delimiter //
 create procedure productpricing()
 begin
-   select Avg(prod_price) as priceaverage from products 
-end;
+   select Avg(prod_price) as priceaverage from products; 
+end //
 存储过程命名为productpricing，用create procedure productpricing()语句定义。如果存储过程接受参数，它们将在（）中列举出来； 没有参数，后跟的()仍然需要。begin和end语句用来限定存储过程体，过程体本来仅是一个简单的select语句；
 
 call productpricing();执行刚创建的存储过程并显示返回的结果；因为存储过程实际上是一种函数，所以存储过程名后面要有（）符号
