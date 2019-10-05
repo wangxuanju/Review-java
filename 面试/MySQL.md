@@ -189,3 +189,26 @@ begin
 end;
 fetch用来检索当前行的order_num列（将自动从第一行开始）到第一个名为o的局部变量中；
 ```
+# 事务
+## 控制事务处理
+start transaction;用来标识事务的开始；
+## 使用rollback
+```java
+使用rollback——此命令用来回退（撤销）mysql语句
+
+select * from ordertotals;
+start transaction;开始一个事务处理
+delete from ordertotals;删除ordertotals中的所有行
+select * from ordertotals;验证ordertotals确实为空
+rollback;   此语句回退start transaction之后的所有语句
+select * from ordertotals;（rollback只能在一个事务处理内使用，即执行一条start transaction命令之后）
+```
+## 使用commit
+使用commit——隐含提交即提交（写或保存）操作是自动进行的 但是事务处理中，提交不会隐含的进行；为进行明确的提交，使用commit语句
+```java
+start transaction：
+delete from orderitems where order_num=20010;
+delete from order where order_num=20010;
+commit;最后的commit语句仅在不出错时写出修改；
+隐含事务关闭：当commit或rollback语句执行后，事务会自动关闭
+```
